@@ -18,3 +18,17 @@ library(ggridges)
 library(ggthemes)
 library(janitor)
 ```
+
+```{r load datasets}
+pols_month_data <- read_csv("../data/fivethirtyeight_datasets/pols-month.csv", col_types = "ciiiiiiii") %>%
+  clean_names() %>%
+  mutate(mon = as.Date(mon),
+         mon = lubridate::floor_date(mon, unit = "month")) %>% 
+  rename(date = mon)
+   
+
+gdp_data <- read_csv("../data/fivethirtyeight_datasets/GDP.csv") %>%
+  clean_names() %>% 
+  mutate(date = lubridate::floor_date(date, unit = "month"))
+
+```
