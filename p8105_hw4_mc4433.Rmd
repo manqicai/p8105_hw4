@@ -44,5 +44,7 @@ gdp_data <- read_csv("../data/fivethirtyeight_datasets/GDP.csv") %>%
 ```
 
 ```{r load and tidy data}
-combine_data <- inner_join(pols_month_data, gdp_data, by = "date")
+combine_data <- inner_join(pols_month_data, gdp_data, by = "date") %>% 
+  mutate(president = ifelse(prez_dem == 1, "dem", "gop")) %>% 
+  select(- prez_gop, - prez_dem)
 ```
