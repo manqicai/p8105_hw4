@@ -19,6 +19,16 @@ library(ggthemes)
 library(janitor)
 ```
 
+#Problem 1 
+The project lead will load and tidy the data for this problem. The original data file includes data in “wide” format: the post-natal days on which developmental landmarks are reached are stored in columns called PD_outcome. The project lead will convert these data to “long” format, using reasonable variable names and values.
+
+The collaborator will create a plot showing the distribution of post-natal days for each developmental landmark.
+
+#Problem 2 
+The project lead will load and tidy the data for this problem. Combine the data in pols-month.csv and GDP.csv based on the date / month (use lubridate::floor_date to collase dates to the first day of the month).
+
+The collaborator will create a plot showing the GDP value over time, including the party of the president in an informative aesthetic.
+
 ```{r load datasets}
 pols_month_data <- read_csv("../data/fivethirtyeight_datasets/pols-month.csv", col_types = "ciiiiiiii") %>%
   clean_names() %>%
