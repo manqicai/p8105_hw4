@@ -57,6 +57,9 @@ combine_data %>%
   group_by(president) %>% 
   ggplot(aes(x = date, y = value, color = president)) +
   geom_line(aes(group = 1)) +
-  scale_x_date(date_labels = "%b %y", date_breaks = "36 month") 
+  scale_x_date(date_labels = "%b %y", date_breaks = "36 month") +
+  labs(title = "GDP Value Over Time", x = "Timeline", y = "GDP value") +
+  theme(legend.position = "bottom")
 ```
 
+From the plot, we could know that at most of time US maintains positive GDP increasing value, but they have dramatic domnfall from year 1948 to 1949 and year 2007 to 2008 (financial crisis period). And it tooks less than two year for them to bounce back at normal GDP level, and these are both happened during the democrat president period.  
